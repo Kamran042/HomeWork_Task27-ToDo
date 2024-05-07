@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [inputValue, setInputValue] = useState(""); 
+  const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState(() => {
     const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : [];
@@ -81,7 +81,21 @@ function App() {
                 <div className="container__lists__card__left">
                   <div
                     className={`circle ${todo.isSelected ? "circle_add" : ""}`}
-                  ></div>
+                  >
+                    <svg
+                      width="11"
+                      height="9"
+                      viewBox="0 0 11 9"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 4.3041L3.6959 7L9.6959 1"
+                        stroke="white"
+                        stroke-width="2"
+                      />
+                    </svg>
+                  </div>
                   <p className={` ${todo.isSelected ? "addP" : ""}`}>
                     {todo.task}
                   </p>
