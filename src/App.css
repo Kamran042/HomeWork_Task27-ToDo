@@ -38,6 +38,7 @@ body {
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
+
 }
 
 
@@ -68,7 +69,7 @@ body {
     gap: 24px;
 }
 
-.conatinerInp button{
+.conatinerInp button {
     padding: 10px 15px;
     border-radius: 20px;
     outline: none;
@@ -130,6 +131,7 @@ body {
     background-color: white;
     border-radius: 5px;
     overflow: hidden;
+
 }
 
 .container__lists__card {
@@ -174,11 +176,50 @@ body {
     transition: all 0.3s ease;
 }
 
-.circle_add{
+.circle_add {
     background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
 }
 
-.addP{
+.addP {
     text-decoration: line-through;
-    color:  #D1D2DA !important;
+    color: #D1D2DA !important;
+}
+
+.contBpxShad {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.container__bottom p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: -0.1944444477558136px;
+    color: #9495A5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container__bottom p:hover{
+    color: #3A7CFD;
+    transition: all 0.3s ease;
+
+}
+
+.container__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+}
+
+.container__bottom__center {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.container__bottom__center p{
+    font-weight: 700;
 }
