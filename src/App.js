@@ -30,6 +30,24 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const filterTodos = () => {
+    switch (filterType) {
+      case "Active":
+        return todos.filter((todo) => !todo.isSelected);
+      case "Completed":
+        return todos.filter((todo) => todo.isSelected);
+      default:
+        return todos;
+    }
+  };
+
+  const [filterType, setFilterType] = useState("All");
+
+  const removeCompletedTodos = () => {
+    const updatedTodos = todos.filter((todo) => !todo.isSelected);
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className="App">
       <div className="header">
@@ -60,7 +78,9 @@ function App() {
             </span>
           </div>
           <div className="conatinerInp">
-            <div className="circleTop"></div>
+            <div className="conatinerInp__left">
+              <div className="circleTop"></div>
+            </div>
             <input
               type="text"
               value={inputValue}
@@ -71,7 +91,7 @@ function App() {
           </div>
           <div className="contBpxShad">
             <div className="container__lists">
-              {todos.map((todo, index) => (
+              {filterTodos().map((todo, index) => (
                 <div
                   className={`container__lists__card ${
                     todo.isSelected ? "selected" : ""
@@ -97,7 +117,7 @@ function App() {
                           <path
                             d="M1 4.3041L3.6959 7L9.6959 1"
                             stroke="white"
-                            stroke-width="2"
+                            strokeWidth="2"
                           />
                         </svg>
                       </span>
@@ -120,15 +140,30 @@ function App() {
             </div>
             <div className="container__bottom">
               <div className="container__bottom__left">
-                <p>5 items left</p>
+                <p>{filterTodos().length} items left</p>
               </div>
               <div className="container__bottom__center">
-                <p>All</p>
-                <p>Active</p>
-                <p>Completed</p>
+                <p
+                  className={filterType === "All" ? "activ_bottom_p" : ""}
+                  onClick={() => setFilterType("All")}
+                >
+                  All
+                </p>
+                <p
+                  className={filterType === "Active" ? "activ_bottom_p" : ""}
+                  onClick={() => setFilterType("Active")}
+                >
+                  Active
+                </p>
+                <p
+                  className={filterType === "Completed" ? "activ_bottom_p" : ""}
+                  onClick={() => setFilterType("Completed")}
+                >
+                  Completed
+                </p>
               </div>
               <div className="container__bottom__right">
-                <p>Clear Completed</p>
+                <p onClick={removeCompletedTodos}>Clear Completed</p>
               </div>
             </div>
           </div>

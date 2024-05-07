@@ -38,6 +38,7 @@ body {
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
+    transition: all 0.3s ease;
 
 }
 
@@ -199,7 +200,7 @@ body {
     transition: all 0.3s ease;
 }
 
-.container__bottom p:hover{
+.container__bottom p:hover {
     color: #3A7CFD;
     transition: all 0.3s ease;
 
@@ -220,6 +221,21 @@ body {
     gap: 18px;
 }
 
-.container__bottom__center p{
+.container__bottom__center p {
     font-weight: 700;
+}
+
+.activ_bottom_p {
+    color: #494C6B !important;
+}
+
+
+@media screen and (max-width:600px) {
+    .container {
+        width: 330px;
+        transition: all 0.3s ease;
+    }
+    .container__bottom__center{
+        flex-direction: column;
+    }
 }
