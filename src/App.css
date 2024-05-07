@@ -35,7 +35,7 @@ body {
 .container {
     position: absolute;
     width: 540px;
-    top: 70px;
+    top: 130px;
     left: 50%;
     transform: translateX(-50%);
     transition: all 0.3s ease;
@@ -239,3 +239,13 @@ body {
         flex-direction: column;
     }
 }
+
+/* body{
+    background-color: black;
+}
+
+.container__lists__card {
+    background-color: #25273D;
+    border-bottom:1px solid #393A4B;
+}
+ */

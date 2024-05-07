@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
+  const storedTodos = localStorage.getItem("todos");
   const [inputValue, setInputValue] = useState("");
-  const [todos, setTodos] = useState(() => {
-    const storedTodos = localStorage.getItem("todos");
-    return storedTodos ? JSON.parse(storedTodos) : [];
-  });
+  const [todos, setTodos] = useState( storedTodos ? JSON.parse(storedTodos) : [] );
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -30,6 +28,8 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const [filterType, setFilterType] = useState("All");
+
   const filterTodos = () => {
     switch (filterType) {
       case "Active":
@@ -41,7 +41,6 @@ function App() {
     }
   };
 
-  const [filterType, setFilterType] = useState("All");
 
   const removeCompletedTodos = () => {
     const updatedTodos = todos.filter((todo) => !todo.isSelected);
